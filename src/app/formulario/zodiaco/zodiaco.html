@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZODIACO</title>
+</head>
+<body> 
+    <div class="container"> 
+        <div class="row"> 
+             <div class="col-6"> 
+                <div class="mb-3"> 
+                    <form> <h1>CALCULADORA ZODIACO CHINO</h1> 
+                        <div class="form-group pt-4"> 
+                            <label for="nombre"> Nombre: </label> 
+                            <input [(ngModel)]="nombre" type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingresa tu nombre(s):"> 
+                        </div> 
+                        <div class="form-group pt-4"> 
+                            <label for="apellidoPaterno"> Apellido Paterno: </label> 
+                            <input [(ngModel)]="apellidoPaterno" type="text" class="form-control" name="apellidoPaterno" id="apellidoPaterno" placeholder="Ingresa tu apellido paterno:"> 
+                        </div> 
+                        <div class="form-group pt-4"> 
+                            <label for="apellidoMaterno"> Apellido Materno: </label> 
+                            <input [(ngModel)]="apellidoMaterno" type="text" class="form-control" name="apellidoMaterno" id="apellidoMaterno" placeholder="Ingresa tu apellido materno:"> 
+                        </div> 
+                        <div class="form-group pt-4"> 
+                            <label> Fecha de Nacimiento </label> 
+                            <br> 
+                            <label> Día: </label> 
+                            <input [(ngModel)]="dia" type="number" min="1" max="31" name="dia"> <br> 
+                            <label> Mes: </label> 
+                            <input [(ngModel)]="mes" type="number" min="1" max="12" name="mes"> <br> 
+                            <label> Año: </label> 
+                            <input [(ngModel)]="anio" type="number" name="anio"> 
+                            <br><br> 
+                        </div> 
+                        <div class="form-group pt-4"> 
+                            <label> Sexo: </label> 
+                            <br> 
+                            <input [(ngModel)]="sexo" type="radio" name="sexo" value="masculino"> Masculino <br> 
+                            <input [(ngModel)]="sexo" type="radio" name="sexo" value="femenino"> Femenino 
+                        </div> 
+                    </form> 
+                    <br> 
+                    <button (click)="imprimir()"> Ver mi animal </button> 
+                </div> 
+            </div> 
+                <div class="col-6"> 
+                    <div *ngIf="resultado"> 
+                        <h2> Hola {{ nombreCompleto }} </h2> 
+                        <h2> Tienes {{ edad }} años </h2> 
+                        <h2> Tu signo zodiacal chino es {{ animal }} </h2> 
+                        <img *ngIf="imagenSigno != ''" [src]="imagenSigno" [alt]="animal" width="250"> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </body> 
+</html>
