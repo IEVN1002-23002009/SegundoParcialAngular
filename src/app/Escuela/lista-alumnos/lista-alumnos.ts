@@ -5,7 +5,7 @@ import { IAlumno } from '../ialumno';
  
 @Component({
   selector: 'app-lista-alumnos',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './lista-alumnos.html',
   styleUrl: './lista-alumnos.css'
 })
@@ -14,10 +14,10 @@ export class ListaAlumnos implements OnInit {
  
   alumnos: IAlumno[] = [];
   nuevoAlumno: IAlumno = {
-    matricula: '',
-    nombre: '',
-    correo: '',
-    materia: ''
+    matricula: 'ddd',
+    nombre: 'ddd',
+    correo: 'ddd',
+    materia: 'ddd',
   };
  
   ngOnInit(): void {
@@ -29,6 +29,14 @@ export class ListaAlumnos implements OnInit {
       correo: new FormControl(''),
       materia: new FormControl('')
     });
+  }
+
+  muestraAlumnos():void{
+    this.nuevoAlumno.matricula=this.formulario.value.matricula
+    this.nuevoAlumno.nombre=this.formulario.value.nombre
+    this.nuevoAlumno.correo=this.formulario.value.correo
+    this.nuevoAlumno.materia=this.formulario.value.materia
+
   }
  
   cargarAlumno(): void {
