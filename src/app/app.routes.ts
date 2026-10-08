@@ -34,6 +34,18 @@ export const routes: Routes = [
         ]
     },
     {
+        path:'Escuela',
+        children:[
+             {
+            path:'Cinepolis',
+            loadComponent:()=>
+                import('./Escuela/cinepolis/cinepolis').then(
+                    (c)=>c.Cinepolis
+                )
+            },
+        ]
+    },
+    {
     path:'', redirectTo:'admin',pathMatch:'full'
     },
     {
